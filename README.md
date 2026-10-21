@@ -1,7 +1,30 @@
-# LogiScope-Logistics-Performance-Analysis-and-Visualization
-A Python-based exploratory data analysis and visualization project on a simulated logistics dataset of 1,500 shipments. It identifies cost drivers, delivery delays and operational bottlenecks across hubs, carriers and transport modes.
-LogiScope simulates a year of shipment data (2025) covering five origin hubs, four carriers and four transport modes, with variables such as distance, weight, volume, planned and actual delivery time, and cost. Using pandas, NumPy, matplotlib and seaborn, the project runs a full exploratory analysis (central tendency, distributions, correlations and regression) and produces eight visualizations: a histogram, box plots, a correlation heatmap, a scatter plot, a trend chart, a carrier ranking, a bottleneck heatmap and a regression plot. The findings show that delays concentrate in one carrier, two hubs and the October-December peak season, while air freight drives most of the cost. The project ends with prioritized recommendations for improving on-time performance and reducing cost.
+# LogiScope: Logistics Analysis and Optimization
 
-Tech stack: Python, pandas, NumPy, matplotlib, seaborn
+Python project on a simulated logistics dataset (1,500 shipments, 5 hubs, 4 carriers, 4 transport modes).
 
-Keywords: logistics, supply chain analytics, EDA, data visualization, delivery performance, cost analysis
+## Week 3: Data analysis and visualization
+- `logistics_analysis.py` simulates the data, runs exploratory analysis and produces eight charts.
+
+## Week 4: Predictive modeling and optimization
+- `logistics_model.py` predicts shipment delay (Linear/Ridge Regression, Decision Tree, Random Forest, Gradient Boosting), validates with 5-fold cross-validation and grid search, then:
+  - allocates shipments to carriers with linear programming (SciPy HiGHS), and
+  - chooses a risk threshold for proactive intervention.
+- Test-set result for the tuned Gradient Boosting model: RMSE 0.63 days, MAE 0.47 days, R-squared 0.47.
+
+## Files
+| File | Purpose |
+|---|---|
+| `logistics_analysis.py` | Week 3 simulation, EDA and charts (writes `logistics_data.csv`) |
+| `logistics_model.py` | Week 4 modeling and optimization (reads `logistics_data.csv`) |
+| `logistics_data.csv` | Simulated shipment dataset |
+| `requirements.txt` | Python dependencies |
+
+## Run
+```bash
+pip install -r requirements.txt
+mkdir charts charts4
+python logistics_analysis.py
+python logistics_model.py
+```
+
+Costs used in the optimization (delay penalty, intervention cost and effectiveness) are stated assumptions, not real company data.
